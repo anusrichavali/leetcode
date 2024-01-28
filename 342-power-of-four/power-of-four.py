@@ -5,9 +5,10 @@ class Solution(object):
         :rtype: bool
         """
         n = float(n)
-        while n >= 1:
-            if n == 1:
-                return True
+        while n > 1:
             n = n/4
         
-        return False
+        if n == 1:
+            return True
+        else:
+            return False
