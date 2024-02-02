@@ -12,7 +12,8 @@ class Solution(object):
                 d[i] = string.ascii_lowercase[ctr]
                 ctr = ctr + 1
 
+        m2 = ""
         for m in range(len(message)):
-            message = message[0:m] + d.get(message[m]) + message[m + 1: len(message)]
+            m2 = m2 + d.get(message[m])
 
-        return message
+        return m2
