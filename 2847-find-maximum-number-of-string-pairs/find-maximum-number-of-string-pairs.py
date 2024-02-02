@@ -13,5 +13,5 @@ class Solution(object):
         for i in words:
             if i in rev and words.index(i) != rev.index(i):
                 ct = ct + 1
-        return int(math.floor(ct/2))
+        return ct/2
         
