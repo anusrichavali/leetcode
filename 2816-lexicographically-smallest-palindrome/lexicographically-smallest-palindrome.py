@@ -5,10 +5,13 @@ class Solution(object):
         :rtype: str
         """
         rev = s[::-1]
+        new = ""
         a = string.ascii_lowercase
         for i in range(len(s)):
             if s[i] != rev[i]:
                 rep = min(a.index(s[i]), a.index(rev[i]))
-                s = s[0: i] + a[rep] + s[i + 1: len(s)]
-        return s
+                new = new + a[rep]
+            else:
+                new = new + s[i]
+        return new
         
