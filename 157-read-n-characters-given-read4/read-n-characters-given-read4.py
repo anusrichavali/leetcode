@@ -28,7 +28,6 @@ class Solution(object):
             count = read4(temp)
             if not count:
                 break
-            count = min(count, n - read)
-            buf[read:] = temp[:count]
+            buf[read:] = temp[:min(count, n - read)]
             read += count
         return read
