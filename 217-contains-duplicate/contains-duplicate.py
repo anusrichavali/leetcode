@@ -4,8 +4,10 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        removeDup = set(nums)
-        if len(removeDup) < len(nums):
-            return True
+        removeDup = set()
+        for i in nums:
+            if i in removeDup:
+                return True
+            removeDup.add(i)
         return False
         
