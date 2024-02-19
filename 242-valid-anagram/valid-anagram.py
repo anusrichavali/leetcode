@@ -5,19 +5,14 @@ class Solution(object):
         :type t: str
         :rtype: bool
         """
-        map = {}
         if len(s) != len(t):
             return False
 
-        for i in s:
-            map[i] = map.get(i, 0) + 1
-
+        l = list(s)
         for i in t:
-            if i not in map.keys():
-                return False
-            elif map[i] == 0:
+            if i not in l:
                 return False
             else:
-                map[i] = map.get(i) - 1
+                l.remove(i)
 
         return True
