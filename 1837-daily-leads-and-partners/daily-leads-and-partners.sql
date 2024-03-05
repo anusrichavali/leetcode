@@ -1,0 +1,2 @@
+# Write your MySQL query statement below
+Select date_id, make_name, COUNT(distinct lead_id) as unique_leads, COUNT(distinct partner_id) as unique_partners From DailySales Group By date_id, make_name Order By date_id, make_name;
