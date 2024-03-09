@@ -5,6 +5,4 @@ class Solution(object):
         :type word2: List[str]
         :rtype: bool
         """
-        w1 = ""
-        w2 = ""
-        return w1.join(word1) == w2.join(word2)
+        return ''.join(word1) == ''.join(word2)
