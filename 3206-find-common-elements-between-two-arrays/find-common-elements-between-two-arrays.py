@@ -5,16 +5,12 @@ class Solution(object):
         :type nums2: List[int]
         :rtype: List[int]
         """
-        ct = 0
-        l = []
-        for i in nums1:
-            if i in nums2:
-                ct += 1
-        l.append(ct)
-        ct = 0
-        for j in nums2:
-            if j in nums1:
-                ct += 1
-        l.append(ct)
-        return l
+        common = (set(nums1)).intersection(set(nums2))
+        ct1 = ct2 = 0
+        for i in common:
+            ct1 += nums1.count(i)
+            ct2 += nums2.count(i)
+        return [ct1, ct2]
+        
+        
         
