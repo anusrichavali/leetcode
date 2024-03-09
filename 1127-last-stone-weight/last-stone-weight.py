@@ -17,3 +17,4 @@ class Solution(object):
             return -(heapq.heappop(stones))
         else:
             return 0
+        
