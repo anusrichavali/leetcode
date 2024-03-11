@@ -10,9 +10,13 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
-        if root == None:
+        #Logic: use recursion, count the length of the left subtrees
+        #count the length of the right subtrees
+        #recursively calculate for each so that all the subtrees are counted
+        #get the max of the right and left subtrees
+        if root is None:
             return 0
-        countLeft = 1 + self.maxDepth(root.left)
-        countRight = 1 + self.maxDepth(root.right)
-        return max(countLeft, countRight)
+        left_sub = 1 + self.maxDepth(root.left)
+        right_sub = 1 + self.maxDepth(root.right)
+        return max(left_sub, right_sub)
         
