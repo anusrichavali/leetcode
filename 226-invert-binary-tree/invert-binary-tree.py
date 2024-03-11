@@ -10,11 +10,17 @@ class Solution(object):
         :type root: TreeNode
         :rtype: TreeNode
         """
-        if root == None:
-            return root
-        tempLeft = root.left
+        #Logic: use recursion
+        #base case: if the root is null, return the root
+        #store the left child as temp
+        #make the left child the right child
+        #equate the right child to temp
+        #now call the recursion on the left and right children in order to sort the lower subtrees
+        if root is None:
+            return None
+        temp = root.left
         root.left = root.right
-        root.right = tempLeft
+        root.right = temp
         self.invertTree(root.left)
         self.invertTree(root.right)
         return root
