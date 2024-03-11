@@ -13,11 +13,15 @@ class Solution(object):
         :type q: TreeNode
         :rtype: TreeNode
         """
-        current = root
-        while current:
-            if p.val < current.val and q.val < current.val:
-                current = current.left
-            elif p.val > current.val and q.val > current.val:
-                current = current.right
+        #Logic: start at the current root 
+        #if the root b/w p and q, return root
+        #if p and q less than root, check left subtree
+        #if p and q greater than root, check right subtree
+        curr = root
+        while curr:
+            if p.val < curr.val and q.val < curr.val:
+                curr = curr.left
+            elif p.val > curr.val and q.val > curr.val:
+                curr = curr.right
             else:
-                return current
+                return curr
