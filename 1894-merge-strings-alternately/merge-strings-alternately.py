@@ -5,17 +5,11 @@ class Solution(object):
         :type word2: str
         :rtype: str
         """
-        i = 0
-        merged = ""
-        while i < min(len(word1), len(word2)):
-            merged = merged + word1[i] + word2[i]
-            i += 1
-        if i < len(word1):
-            merged = merged + word1[i:len(word1)]
-        elif i < len(word2):
-            merged = merged + word2[i:len(word2)]
-        return merged
-
-
-
-        
+        total = ""
+        for i in range(min(len(word1), len(word2))):
+            total += word1[i] + word2[i]
+        if len(word2) > len(word1):
+            total += word2[len(word1):]
+        else:
+            total += word1[len(word2):]
+        return total
