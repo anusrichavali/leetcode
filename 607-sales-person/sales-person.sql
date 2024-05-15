@@ -1,0 +1,2 @@
+# Write your MySQL query statement below
+select s.name from SalesPerson s where s.sales_id NOT IN(Select o.sales_id from Orders o where o.com_id IN (Select c.com_id from Company c where c.name = "RED") group by o.com_id);
