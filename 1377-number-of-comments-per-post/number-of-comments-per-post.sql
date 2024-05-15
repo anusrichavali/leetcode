@@ -1,0 +1,2 @@
+# Write your MySQL query statement below
+select distinct s.sub_id as post_id, (select count(distinct s1.sub_id) from submissions s1 where s.sub_id = s1.parent_id) as number_of_comments from submissions s where parent_id is NULL order by post_id asc;
