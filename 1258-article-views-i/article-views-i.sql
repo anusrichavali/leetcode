@@ -1,2 +1,2 @@
 # Write your MySQL query statement below
-Select DISTINCT viewer_id as id FROM Views WHERE viewer_id = author_id Order By viewer_id ASC;
+select distinct author_id as id from Views where viewer_id = author_id order by author_id asc;
