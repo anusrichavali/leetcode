@@ -4,4 +4,9 @@ class Solution(object):
         :type x: int
         :rtype: bool
         """
-        return str(x) == str(x)[::-1]
+        og = x
+        rev = 0
+        while x > 0:
+            rev = (rev * 10) + (x % 10)
+            x /= 10
+        return og == rev
