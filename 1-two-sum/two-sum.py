@@ -1,15 +1,9 @@
-class Solution(object):
-    def twoSum(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
-        index = []
-        hashmap = {}
-        for i in range(len(nums)):
-            if target - nums[i] in hashmap:
-                return [hashmap.get(target - nums[i]), i]
-            hashmap[nums[i]] = i
-        return []
-            
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        diffs = {}
+
+        for i in range(0, len(nums)):
+            if nums[i] in diffs.keys():
+                return [diffs.get(nums[i]), i]
+            diffs[target - nums[i]] = i
+        
