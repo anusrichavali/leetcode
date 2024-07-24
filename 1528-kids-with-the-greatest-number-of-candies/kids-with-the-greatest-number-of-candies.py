@@ -5,12 +5,9 @@ class Solution(object):
         :type extraCandies: int
         :rtype: List[bool]
         """
-        b = []
-        m = max(candies)
-        for i in candies:
-            if extraCandies + i >= m:
-                b.append(True)
-            else:
-                b.append(False)
-        return b
-        
+        max_candies = max(candies)
+        res = [False] * len(candies)
+        for i in range(len(candies)):
+            if extraCandies + candies[i] >= max_candies:
+                res[i] = True
+        return res
