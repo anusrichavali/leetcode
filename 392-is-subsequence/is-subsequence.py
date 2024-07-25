@@ -13,8 +13,6 @@ class Solution(object):
             while t_ptr < len(t) and t[t_ptr] != s[s_ptr]:
                 t_ptr += 1
             if t_ptr < len(t) and t[t_ptr] == s[s_ptr]:
-                print(s[s_ptr])
-                print(t[t_ptr])
                 s_ptr += 1
                 t_ptr += 1
         return s_ptr == len(s)
