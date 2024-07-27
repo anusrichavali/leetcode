@@ -4,7 +4,10 @@ class Solution(object):
         :type gain: List[int]
         :rtype: int
         """
-        alt = [0] * (len(gain) + 1)
-        for i in range(1, len(alt)):
-            alt[i] = alt[i - 1] + gain[i - 1]
-        return max(alt)
+        max_alt = 0
+        running_alt = 0
+        for i in gain:
+            running_alt += i
+            max_alt = max(max_alt, running_alt)
+        return max_alt
+        
