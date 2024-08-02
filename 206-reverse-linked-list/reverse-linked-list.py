@@ -9,12 +9,13 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        current = head
         prev = None
-        while current:
-            next = current.next
-            current.next = prev
-            prev = current
-            current = next
+        curr = head
+        while curr:
+            temp = curr.next
+            curr.next = prev
+            prev = curr
+            curr = temp
         head = prev
         return head
+        
