@@ -4,14 +4,14 @@ class Solution(object):
         :type height: List[int]
         :rtype: int
         """
+        max_area = 0
         left = 0
         right = len(height) - 1
-        maxArea = 0
         while left < right:
-            area = (right - left) * min(height[left], height[right])
-            maxArea = max(maxArea, area)
-            if(height[left] <= height[right]):
-                left += 1
-            else:
+            a = (right - left) * min(height[left], height[right])
+            if height[right] < height[left]:
                 right -= 1
-        return maxArea
+            else:
+                left += 1
+            max_area = max(max_area, a)
+        return max_area
