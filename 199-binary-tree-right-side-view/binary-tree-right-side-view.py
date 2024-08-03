@@ -10,22 +10,20 @@ class Solution(object):
         :type root: TreeNode
         :rtype: List[int]
         """
-        result = []
-        def breadthFirstSearch(root):
-            queue = collections.deque()
-            queue.append(root)
-            while queue:
-                qLen = len(queue)
-                level = []
-                for i in range(qLen):
-                    node = queue.popleft()
-                    if node:
-                        level.append(node.val)
-                        queue.append(node.left)
-                        queue.append(node.right)
-                if level:
-                    result.append(level[-1])
-        
-        breadthFirstSearch(root)
-        return result
+        if not root:
+            return
+        right = []
+        queue = []
+        queue.append(root)
+        while queue:
+            level = []
+            for i in range(len(queue)):
+                node = queue.pop(0)
+                if node:
+                    level.append(node.val)
+                    queue.append(node.left)
+                    queue.append(node.right)
+            if level:
+                right.append(level[-1])
+        return right
         
