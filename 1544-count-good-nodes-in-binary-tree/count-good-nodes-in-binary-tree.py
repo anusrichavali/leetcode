@@ -10,12 +10,16 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
-        def dfs(node, maxVal):
-            if not node:
+        def dfs(self, root, greatest):
+            if not root:
                 return 0
-            result = 1 if node.val >= maxVal else 0
-            maxVal = max(maxVal, node.val)
-            return result + dfs(node.left, maxVal) + dfs(node.right, maxVal)
-        
-        return dfs(root, root.val)
+            if root.val >= greatest:
+                count = 1
+            else:
+                count = 0
+            greatest = max(root.val, greatest)
+            count += dfs(self, root.left, greatest)
+            count += dfs(self, root.right, greatest)
+            return count
+        return dfs(self, root, root.val)
         
