@@ -1,18 +1,25 @@
-class Solution(object):
-    def reverseWords(self, s):
-        """
-        :type s: str
-        :rtype: str
-        """
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        new_str = ""
         curr = ""
-        words = []
-        for i in range(len(s) - 1, -1, -1):
-            if s[i] == ' ':
-                if curr:
-                    words.append(curr)
-                    curr = ''
+        i = 0
+        while i < len(s):
+            if s[i] == " " and curr == "":
+                i += 1
+                continue
+            if s[i] == " ":
+                if not new_str:
+                    new_str = curr
+                else:
+                    new_str = curr + " " + new_str
+                curr = ""
+                i += 1
             else:
-                curr = s[i] + curr
+                curr += s[i]
+                i += 1
         if curr:
-            words.append(curr)
-        return " ".join(words)        
+            if not new_str:
+                new_str = curr
+            else:
+                new_str = curr + " " + new_str
+        return new_str
